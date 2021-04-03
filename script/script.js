@@ -38,14 +38,14 @@ document.getElementById("submitHash").onclick = function codecracker() {
     // time_pre = microtime(true);
     // md5 = _GET['md5'];
     // console.log(md5);
-    codecracker1(numbers, md5);
-        if (bool == true) {
-          console.log("bool == true")
-        }   else { 
-               codecracker1(numbersandletters, md5);
-            } if (bool == true) {
-              console.log("bool2 is true")
-            } else { console.log("bool2 is false :(")}
+    codecracker1(numbers, md5); 
+        // if (bool == true) {
+        //   console.log("bool == true")
+        // }   else { 
+        //        codecracker1(numbersandletters, md5);
+        //     } if (bool == true) {
+        //       console.log("bool2 is true")
+        //     } else { console.log("bool2 is false :(")}
         //     //     if (password != true) {
         //     //         codecracker1(numletandsymb, md5);
         //     //         if (password != true) {
