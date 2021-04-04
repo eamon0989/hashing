@@ -6,68 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <!-- <?php    require'function2.php'; ?> -->
 </head>
+
 <body>
-<div class="container", id="container">
-    <h1>md5 pin hasher:</h1>
-    <p id="topP">Write any 4 digit pin here:
-    (Only letters and numbers).</p>
+    <div class="container", id="container">
+        <h1>md5 pin hasher:</h1>
+        <p id="topP">Write any 4 digit pin here:
+        (Only letters and numbers).</p>
+        <form>
+            <input  id="insertPin" type="text" name="md5hash"/>
+            <input id="submitPin" onclick="showMd5()" type="text" value="Make MD5"/>
+        </form>
+    </div>
 
-
-    <!-- <?php
-        if ( isset($_GET['md5hash']) ) {
-    $md5hash = $_GET['md5hash'];
-        }
-    ?> -->
-
-    
-    <form>
-        <input  id="insertPin" type="text" name="md5hash"/>
-        <input id="submitPin" onclick="showMd5()" type="text" value="Make MD5"/>
-    </form>
-
-
-
-</div>
-
-<div id="showmd5", class="container">
-    <div id="showmd5Center">
-        <p id="hashWas"></p>
-        <p id="hashesChecked"></p>
-        <p id="output"></p>
-        <p id="timeTaken"></p>
-        <div id="resetBtnDiv">
-        <button id="reset" onclick="reset()" type="button">Reset</button>
+    <div id="showmd5", class="container">
+        <div id="showmd5Center">
+            <p id="hashWas"></p>
+            <p id="hashesChecked"></p>
+            <p id="output"></p>
+            <p id="timeTaken"></p>
+            <div id="resetBtnDiv">
+                <button id="reset" onclick="reset()" type="button">Reset</button>
+            </div>
         </div>
     </div>
-        <!-- <span id="loader", class="loader"></span> -->
-</div>
-<!-- <div id="showLoader", class="container">
-
-</div> -->
-
-<div id="container2" class="container">
-
-    <p id="showHash"></p>
-
-<p id="instructions">
-    Copy and paste this hash into the following box. 
-    It will check the hashes of the numbers 0000 to 9999 to see which matches your pin. <br><br>
-    Numbers only will solve in less than 2 seconds. 
-    More complex pins including letters may take up to 50 seconds, please be patient.
-    </p>
-
-    <form class="returnPin">
-        <input id="insertHash" class="input" type="text" name="md5" size="60" />
-        <input id="submitHash" onclick="codecracker()" type="text" value="Crack MD5"/>
-    </form>
-    <!-- <h2>First 15 attempts:</h2> -->
 
 
-</div>
+    <div id="container2" class="container">
+        <p id="showHash"></p>
+        <p id="instructions">
+        Copy and paste this hash into the following box. 
+        It will check the hashes of the numbers 0000 to 9999 to see which matches your pin. <br><br>
+        Numbers only will solve in less than 2 seconds. 
+        More complex pins including letters may take up to 50 seconds, please be patient.
+        </p>
+        <form class="returnPin">
+            <input id="insertHash" class="input" type="text" name="md5" size="60" />
+            <input id="submitHash" onclick="codecracker()" type="text" value="Crack MD5"/>
+        </form>
+    </div>
 
 </body>
-<!-- <script src="https://gist.github.com/souhaiebtar/f0e064152b70902f2cd58cf9b8311be9.js"></script> -->
 <script src="script/script.js"></script>
 </html>
