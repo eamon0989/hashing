@@ -21,7 +21,7 @@ body {
     /* display: grid; */
     grid-column: 2;
     place-items: center;
-    grid-auto-flow: column;
+    /* grid-auto-flow: column; */
     background: white;
     padding: 1rem 2rem;
 }
@@ -29,8 +29,8 @@ body {
 h1, h2 {
     display: grid;
     justify-content: center;
-    padding: 1.2rem;
-    font-size: 2em;
+    padding: 2rem;
+    font-size: 3em;
 }
 
 form {
@@ -66,6 +66,16 @@ p {
     font-size: 1em;
 }
 
+#instructions {
+  padding: 0.5vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.returnPin {
+  padding:2rem;
+}
+
 div {
     /* display: grid;
     grid-column: 2;
@@ -74,12 +84,32 @@ div {
 
 #container2 {
     display: none;
+    padding: 3rem 3rem;
+}
+
+#showmd5Center {
+  grid-column: 2;
+  place-items: center;
+
+}
+
+#submitHash {
+  margin: 1.5vh;
 }
 
 #showmd5 {
     grid-column: 2;
-    justify-content: center;
+    place-items: center;
+    display: grid;
     display: none;
+    padding: 3rem 3rem;
+    padding-top: 6rem;
+}
+
+#timeTaken {
+  grid-column: 2;
+  place-items: center;
+  padding: 2rem;
 }
 
 #showLoader{
@@ -91,8 +121,45 @@ div {
 #topP {
     justify-content: center;
 }
+#showHash {
+  grid-column: 2;
+  place-items: center;
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
 
-.loader {
+#hashesChecked {
+  grid-column: 2;
+  place-items: center;
+  padding: 2rem;
+}
+
+#hashWas {
+  grid-column: 2;
+  place-items: center;
+}
+
+#output {
+  grid-column: 2;
+  place-items: center;
+}
+
+#resetBtnDiv {
+  grid-column: 2;
+  place-items: center;
+  text-align:center; 
+  display: grid;
+  /* padding: 2rem; */
+}
+
+#loader {
+  grid-column: 2;
+  justify-content: center;
+  display: none;
+}
+
+
+/* .loader {
     display: none;
     grid-column: 2;
     justify-content: center;
@@ -148,4 +215,4 @@ div {
       transform: rotate(-360deg);
     }
   }
-      
+       */

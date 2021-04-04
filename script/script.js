@@ -10,13 +10,16 @@ document.getElementById("submitPin").onclick = function showMd5() {
     result = MD5(pinToHash); 
     // console.log(result);
     // console.log(pinToHash);
-    document.getElementById("showmd5").style.display = "grid";
+    // document.getElementById("showmd5").style.display = "grid";
+    document.getElementById("container").style.display = "none";
     document.getElementById("showHash").innerHTML = result;    
     document.getElementById("container2").style.display = "block";
 
 };
 
-
+function reset() {
+    window.location.reload();ºº
+};
 
 let password; //the correct pin will be stored here and returned to user
 let show = 15; //amount of attempts to print
@@ -29,20 +32,18 @@ let ch1, ch2, ch3, ch4;
 let start;
 let millis;
 let bool = false;
+let timeTaken;
 
 document.getElementById("submitHash").onclick = function codecracker() {
     md5 = document.getElementById("insertHash").value;
-    document.getElementById("showHash").style.display = "none";
-    document.getElementById("loader").style.display = "block";    
     start = Date.now();
-    // time_pre = microtime(true);
-    // md5 = _GET['md5'];
-    // console.log(md5);
+    // document.getElementById("showHash").style.display = "none";
+    // document.getElementById("loader").style.display = "block"; 
     codecracker1(numbers, md5); 
-        // if (bool == true) {
-        //   console.log("bool == true")
-        // }   else { 
-        //        codecracker1(numbersandletters, md5);
+        if (bool == true) {
+          console.log("bool == true")
+        }   else { 
+               codecracker1(numbersandletters, md5);
         //     } if (bool == true) {
         //       console.log("bool2 is true")
         //     } else { console.log("bool2 is false :(")}
@@ -52,29 +53,43 @@ document.getElementById("submitHash").onclick = function codecracker() {
         //     //             console.log("I can't crack this pin");
         //     //         }
         //     // }
-        // }
+        }
 
     setTimeout(() => {
       millis = Date.now() - start;
     
-      console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
+      timeTaken = `Seconds elapsed: ${Math.floor(millis / 1000)}`;
+      document.getElementById("timeTaken").innerHTML = `${timeTaken}`;
       // expected output: seconds elapsed = 2
     }, 2000);
 
     if (bool == true) { 
-        console.log(`Total number of hashes checked: ${checks}`);
-        console.log(`Your pin was: ${password}`); 
-        document.getElementById("loader").style.display = "none";    
+        document.getElementById("showmd5").style.display = "block";
+        document.getElementById("hashWas").innerHTML = `Your hash was: ${md5}`;         
+        document.getElementById("hashesChecked").innerHTML = `Total number of hashes checked: ${checks}`; 
+        document.getElementById("output").innerHTML = `Your pin was: ${password}`;
+        document.getElementById("timeTaken").innerHTML = `Seconds elapsed:`;
+        document.getElementById("reset").style.display = "block";
+        document.getElementById("container2").style.display = "none";
+  
 
     }
+    
+
 
 };
 
 
+// function doneLoading() {
+//     document.getElementById("showHash").style.display = "none";
+//     document.getElementById("loader").style.display = "none";  
+// }
+
 
 function codecracker1(input, md5) { //this function takes the input and cracks the code, then returns it to the other function
-for(let i = 0; i < input.length; i++) {
-  ch1 = input[i];
+ 
+    for(let i = 0; i < input.length; i++) {
+    ch1 = input[i];
       for(let j = 0; j < input.length; j++) {
           ch2 = input[j];
               for(let k = 0; k < input.length; k++) {

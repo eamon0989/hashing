@@ -9,10 +9,11 @@
     <!-- <?php    require'function2.php'; ?> -->
 </head>
 <body>
-<div class="container">
+<div class="container", id="container">
     <h1>md5 pin hasher:</h1>
     <p id="topP">Write any 4 digit pin here:
     (Only letters and numbers).</p>
+
 
     <!-- <?php
         if ( isset($_GET['md5hash']) ) {
@@ -31,8 +32,16 @@
 </div>
 
 <div id="showmd5", class="container">
-        <p id="showHash">test</p>
-        <span id="loader", class="loader"></span>
+    <div id="showmd5Center">
+        <p id="hashWas"></p>
+        <p id="hashesChecked"></p>
+        <p id="output"></p>
+        <p id="timeTaken"></p>
+        <div id="resetBtnDiv">
+        <button id="reset" onclick="reset()" type="button">Reset</button>
+        </div>
+    </div>
+        <!-- <span id="loader", class="loader"></span> -->
 </div>
 <!-- <div id="showLoader", class="container">
 
@@ -40,12 +49,13 @@
 
 <div id="container2" class="container">
 
-<p>
+    <p id="showHash"></p>
+
+<p id="instructions">
     Copy and paste this hash into the following box. 
-    It will check the hashes of the numbers 0000 to 9999 to see which matches your pin.
-    Only numbers will solve in less than 5 seconds.
-    Letters and numbers will take up to 50 seconds.
-    Letters and common symbols takes too long.
+    It will check the hashes of the numbers 0000 to 9999 to see which matches your pin. <br><br>
+    Numbers only will solve in less than 2 seconds. 
+    More complex pins including letters may take up to 50 seconds, please be patient.
     </p>
 
     <form class="returnPin">
