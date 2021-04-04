@@ -76,12 +76,6 @@ p {
   padding:2rem;
 }
 
-div {
-    /* display: grid;
-    grid-column: 2;
-    justify-content: center; */
-}
-
 #container2 {
     display: none;
     padding: 3rem 3rem;
