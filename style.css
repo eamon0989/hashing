@@ -76,7 +76,7 @@ p {
     display: grid;
     text-justify:inter-word;
     /* padding: 0.2rem; */
-    font-size: calc(0.5rem + 2.5vmin);
+    font-size: calc(0.5rem + 3vmin);
     text-align: center;
 
 }
