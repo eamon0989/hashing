@@ -16,42 +16,53 @@ let timeTaken;
 
 
 document.getElementById("submitPin").onclick = function showMd5() {
-    pinToHash = document.getElementById("insertPin").value;
-    result = MD5(pinToHash); 
-    document.getElementById("container").style.display = "none";
-    document.getElementById("showHash").innerHTML = result;    
-    document.getElementById("container2").style.display = "block";
+    pinToHash = document.getElementById("insertPin").value; //takes input 
+    containsSymbols = (/[^a-z,0-9,A-Z]/.test(pinToHash)); // checks if contains symbols
+    result = MD5(pinToHash); // converts pin inputed to hash
+    if ((pinToHash.length == 4) && (containsSymbols == false)) // if pin == 4 char and !contain sybmols, show next step
+    {
+        document.getElementById("container").style.display = "none";
+        document.getElementById("showHash").innerHTML = result;    
+        document.getElementById("container2").style.display = "block";
+    } else {
+        document.getElementById("onlyFour").style.display = "block"; // if input !contain 4 char, show warning
+        if (containsSymbols == true) {
+            document.getElementById("noSymbols").style.display = "block"; // if input contains symbols, show warning
+        }
+    }
 };
 
-function reset() {
+function reset() { //reloads the windows to reset the pin cracker
     window.location.reload();
 };
 
 document.getElementById("submitHash").onclick = function codecracker() {
     md5 = document.getElementById("insertHash").value;
-    start = Date.now();
-    codecracker1(numbers, md5); 
-        if (bool == true) {
-          console.log("bool == true")
-        }   else { 
-               codecracker1(numbersandletters, md5);
+    if (result == md5) { // if the user pasted in the correct hash, continue, else display a warning
+        start = Date.now();
+        codecracker1(numbers, md5); 
+            if (bool != true) { //if pin isn't all numbers, check letters
+                   codecracker1(numbersandletters, md5);
+            }
+
+        setTimeout(() => {
+          millis = Date.now() - start;
+          timeTaken = `Seconds elapsed: ${Math.floor(millis / 1000)}`; //counts the amount of miliseconds from beginning to end and divides by 1000 to get the seconds
+          document.getElementById("timeTaken").innerHTML = `${timeTaken}`;
+          // expected output: seconds elapsed = 2
+        }, 2000);
+
+        if (bool == true) {  // when hash is decoded, move to final step
+            document.getElementById("showmd5").style.display = "block";
+            document.getElementById("hashWas").innerHTML = `Your hash was: ${md5}`;         
+            document.getElementById("hashesChecked").innerHTML = `Total number of hashes checked: ${checks}`; 
+            document.getElementById("output").innerHTML = `Your pin was: ${password}`;
+            document.getElementById("timeTaken").innerHTML = `Seconds elapsed:`;
+            document.getElementById("reset").style.display = "block";
+            document.getElementById("container2").style.display = "none";
         }
-
-    setTimeout(() => {
-      millis = Date.now() - start;
-      timeTaken = `Seconds elapsed: ${Math.floor(millis / 1000)}`;
-      document.getElementById("timeTaken").innerHTML = `${timeTaken}`;
-      // expected output: seconds elapsed = 2
-    }, 2000);
-
-    if (bool == true) { 
-        document.getElementById("showmd5").style.display = "block";
-        document.getElementById("hashWas").innerHTML = `Your hash was: ${md5}`;         
-        document.getElementById("hashesChecked").innerHTML = `Total number of hashes checked: ${checks}`; 
-        document.getElementById("output").innerHTML = `Your pin was: ${password}`;
-        document.getElementById("timeTaken").innerHTML = `Seconds elapsed:`;
-        document.getElementById("reset").style.display = "block";
-        document.getElementById("container2").style.display = "none";
+    } else { // if user doesn't paste in the correct hash, display a warning
+        document.getElementById("onlyHash").style.display = "block";
     }
 };
 /*

@@ -15,8 +15,25 @@
         (Only letters and numbers).</p>
         <form>
             <input  id="insertPin" type="text" name="md5hash"/>
-            <input id="submitPin" onclick="showMd5()" type="text" value="Make MD5"/>
+            <button id="submitPin" onclick="showMd5()" type="button">Make MD5</button>
         </form>
+        <p id="onlyFour">Please type a pin composed of only 4 numbers and/or letters.</p>
+        <p id="noSymbols">No symbols are allowed, Javascript is too slow to process them :(</p>
+    </div>
+
+    <div id="container2" class="container">
+        <p id="showHash"></p>
+        <p id="instructions">
+        Copy and paste this hash into the following box. 
+        It will check the hashes of the numbers 0000 to 9999 to see which matches your pin. <br><br>
+        Numbers only will solve in less than 2 seconds. 
+        More complex pins including letters may take up to 50 seconds, please be patient.
+        </p>
+        <form class="returnPin">
+            <input id="insertHash" class="input" type="text" name="md5" size="60" />
+            <button id="submitHash" onclick="codecracker()" type="button">Crack MD5</button>
+        </form>
+        <p id="onlyHash">Please paste in the hash from above.</p>
     </div>
 
     <div id="showmd5", class="container">
@@ -29,21 +46,6 @@
                 <button id="reset" onclick="reset()" type="button">Reset</button>
             </div>
         </div>
-    </div>
-
-
-    <div id="container2" class="container">
-        <p id="showHash"></p>
-        <p id="instructions">
-        Copy and paste this hash into the following box. 
-        It will check the hashes of the numbers 0000 to 9999 to see which matches your pin. <br><br>
-        Numbers only will solve in less than 2 seconds. 
-        More complex pins including letters may take up to 50 seconds, please be patient.
-        </p>
-        <form class="returnPin">
-            <input id="insertHash" class="input" type="text" name="md5" size="60" />
-            <input id="submitHash" onclick="codecracker()" type="text" value="Crack MD5"/>
-        </form>
     </div>
 
 </body>
